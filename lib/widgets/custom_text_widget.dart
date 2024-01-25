@@ -7,7 +7,7 @@ class CustomTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Notes',
+    return  Text('Notes',
     style: TextStyle(
       color: Colors.white,
       fontSize: 25,
