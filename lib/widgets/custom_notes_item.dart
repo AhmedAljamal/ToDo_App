@@ -25,7 +25,7 @@ class NoteItem extends StatelessWidget {
               ),
             ),
             subtitle: Padding(
-              padding: const EdgeInsets.only(top: 16 ,),
+              padding: const EdgeInsets.only(bottom: 30 ,),
               child: Text(
                 'Build your Career with Ahmed Gad',
                 style: TextStyle(

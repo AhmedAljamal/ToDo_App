@@ -14,12 +14,10 @@ class CustomHomeViewBody extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 50,
+            height: 80,
           ),
           CustomAppBar(),
-          SizedBox(
-            height: 10,
-          ),
+          
           Expanded(child: NotesListView()),
         ],
       ),
