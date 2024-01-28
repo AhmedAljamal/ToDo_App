@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/custom_app_bar.dart';
+import 'package:todo_app/widgets/custom_floationg_action_button.dart';
 import 'package:todo_app/widgets/custom_icon_search.dart';
 import 'package:todo_app/widgets/custom_notes_item.dart';
 import 'package:todo_app/widgets/custom_notes_list_view.dart';
@@ -10,7 +11,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
+      floatingActionButton: CustomFloatingActionButton(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -23,12 +25,11 @@ class HomeView extends StatelessWidget {
               height: 10,
             ),
             Expanded(child: NotesListView()),
-
-
           ],
         ),
       ),
     );
   }
 }
+
 
