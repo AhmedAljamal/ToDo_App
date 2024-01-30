@@ -21,9 +21,7 @@ class CustomFloatingActionButton extends StatelessWidget {
           return AddNoteBottomSheet();
         },);
       },
-      child: Icon(
-        Icons.add,
-      ),
+      child: Icon(Icons.add),
     );
   }
 }
