@@ -16,7 +16,10 @@ class CustomHomeViewBody extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          CustomAppBar(),
+          CustomAppBar(
+            text: 'Notes',
+            icon: Icons.add,
+          ),
           
           Expanded(child: NotesListView()),
         ],
