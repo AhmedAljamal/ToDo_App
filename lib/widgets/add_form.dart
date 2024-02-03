@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/Models/note_model.dart';
@@ -18,14 +17,13 @@ class AddForm extends StatefulWidget {
 class _AddFormState extends State<AddForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
 
-   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   String? title, subtitle;
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      
       key: formKey,
       autovalidateMode: autovalidateMode,
       child: Column(
@@ -33,7 +31,6 @@ class _AddFormState extends State<AddForm> {
           CustomTextField(
             onSaved: (value) {
               title = value;
-              
             },
             text: 'Title',
           ),
@@ -43,7 +40,6 @@ class _AddFormState extends State<AddForm> {
           CustomTextField(
             onSaved: (value) {
               subtitle = value;
-              
             },
             text: 'Content',
             max: 5,
@@ -51,25 +47,25 @@ class _AddFormState extends State<AddForm> {
           SizedBox(
             height: 100,
           ),
-      
-          CustomButton(
-            onTap: () {
-              
-              if (formKey.currentState!.validate()) 
-              {
-                formKey.currentState!.save();
-                var noteModel = NoteModel(title: title!, subtitle: subtitle!, color: Colors.teal.value, date: DateTime.now().toString());
-                BlocProvider.of<AddNoteCubit>(context).AddNote(noteModel);
-                
-              }else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {
-
-                  
-                });
-                
-              }
-              
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoading: state is AddNoteLoading ? true : false,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var noteModel = NoteModel(
+                        title: title!,
+                        subtitle: subtitle!,
+                        color: Colors.teal.value,
+                        date: DateTime.now().toString());
+                    BlocProvider.of<AddNoteCubit>(context).AddNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
         ],

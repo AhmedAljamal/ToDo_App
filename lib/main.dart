@@ -11,8 +11,9 @@ void main() async {
   
   await Hive.initFlutter();
   Bloc.observer = SimpleBlocObserver();
-  await Hive.openBox(kHiveBox);
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox(kHiveBox);
+  
   runApp(const ToDoApp());
 }
 
