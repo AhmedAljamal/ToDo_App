@@ -19,5 +19,6 @@ class NoteModel extends HiveObject{
     required this.subtitle,
     required this.color,
     required this.date,
-  });
+  }
+  );
 }
