@@ -12,6 +12,7 @@ class CustomFloatingActionButton extends StatelessWidget {
       backgroundColor: Colors.purple,
       onPressed: () {
         showModalBottomSheet(
+          isScrollControlled: true,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16)
           ),
